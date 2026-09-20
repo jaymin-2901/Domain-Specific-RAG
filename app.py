@@ -44,9 +44,9 @@ def main():
         st.header("Setup")
         api_key = st.text_input(
             "Gemini API key",
-            value=config.GEMINI_API_KEY,
+            value="",
             type="password",
-            help="Free key: https://aistudio.google.com/apikey",
+            help="Enter your own key. It is used only for this session. Get a key at https://aistudio.google.com/apikey",
         )
         if not api_key:
             st.warning("Enter a Gemini API key to continue.")
