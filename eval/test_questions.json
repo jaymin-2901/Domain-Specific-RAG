@@ -1,0 +1,156 @@
+[
+  {
+    "id": "q01",
+    "question": "What are the standard deployment windows at Meridian Systems?",
+    "expected_source": "01_deployment_policy.md",
+    "expected_keywords": ["Tuesday", "Thursday", "10:00", "16:00"]
+  },
+  {
+    "id": "q02",
+    "question": "How many approvals are required for a major schema or infrastructure deployment change?",
+    "expected_source": "01_deployment_policy.md",
+    "expected_keywords": ["tech lead", "on-call SRE"]
+  },
+  {
+    "id": "q03",
+    "question": "What happens if the error rate exceeds the allowed threshold during a canary rollout?",
+    "expected_source": "01_deployment_policy.md",
+    "expected_keywords": ["rollback"]
+  },
+  {
+    "id": "q04",
+    "question": "What is the acknowledgement SLA for a P1 incident?",
+    "expected_source": "02_incident_response.md",
+    "expected_keywords": ["5 minutes"]
+  },
+  {
+    "id": "q05",
+    "question": "Who typically becomes the Incident Commander during an incident?",
+    "expected_source": "02_incident_response.md",
+    "expected_keywords": ["on-call engineer"]
+  },
+  {
+    "id": "q06",
+    "question": "How soon after resolution must a P2 incident postmortem be completed?",
+    "expected_source": "02_incident_response.md",
+    "expected_keywords": ["5 business days"]
+  },
+  {
+    "id": "q07",
+    "question": "If a P1 incident is not acknowledged within its SLA, who gets paged next and why?",
+    "expected_source": "04_oncall_rotation.md",
+    "expected_keywords": ["secondary on-call"],
+    "is_unanswerable": false
+  },
+  {
+    "id": "q08",
+    "question": "How many approvals are needed to merge a pull request touching the payments service?",
+    "expected_source": "03_code_review_guidelines.md",
+    "expected_keywords": ["two"]
+  },
+  {
+    "id": "q09",
+    "question": "What prefix should reviewers use for a non-blocking review comment?",
+    "expected_source": "03_code_review_guidelines.md",
+    "expected_keywords": ["nit", "suggestion"]
+  },
+  {
+    "id": "q10",
+    "question": "How long does a single on-call rotation shift last?",
+    "expected_source": "04_oncall_rotation.md",
+    "expected_keywords": ["week", "Monday"]
+  },
+  {
+    "id": "q11",
+    "question": "How far in advance must an on-call shift swap normally be requested?",
+    "expected_source": "04_oncall_rotation.md",
+    "expected_keywords": ["48 hours"]
+  },
+  {
+    "id": "q12",
+    "question": "If both the primary and secondary on-call engineers fail to acknowledge a P1 page, who is paged next?",
+    "expected_source": "04_oncall_rotation.md",
+    "expected_keywords": ["engineering manager"]
+  },
+  {
+    "id": "q13",
+    "question": "How often must production secrets be rotated?",
+    "expected_source": "05_security_policy.md",
+    "expected_keywords": ["180 days"]
+  },
+  {
+    "id": "q14",
+    "question": "What encryption is required at rest for Restricted payment data?",
+    "expected_source": "05_security_policy.md",
+    "expected_keywords": ["AES-256", "tokenization"]
+  },
+  {
+    "id": "q15",
+    "question": "If a security vulnerability exposes Restricted data, what incident severity is it treated as, and what is the resolution target for that severity?",
+    "expected_source": "05_security_policy.md",
+    "expected_keywords": ["P1", "4 hours"]
+  },
+  {
+    "id": "q16",
+    "question": "What HTTP status code should a validation error return?",
+    "expected_source": "06_api_design_guidelines.md",
+    "expected_keywords": ["422"]
+  },
+  {
+    "id": "q17",
+    "question": "What header must resource-creating endpoints accept to support idempotency?",
+    "expected_source": "06_api_design_guidelines.md",
+    "expected_keywords": ["Idempotency-Key"]
+  },
+  {
+    "id": "q18",
+    "question": "How long must a deprecated API field remain functional after the deprecation is announced?",
+    "expected_source": "06_api_design_guidelines.md",
+    "expected_keywords": ["6 months"]
+  },
+  {
+    "id": "q19",
+    "question": "What are the three phases of the expand/contract database migration pattern?",
+    "expected_source": "07_database_migration_guide.md",
+    "expected_keywords": ["expand", "migrate", "contract"]
+  },
+  {
+    "id": "q20",
+    "question": "What Postgres command should be used to add an index on a large table without locking writes?",
+    "expected_source": "07_database_migration_guide.md",
+    "expected_keywords": ["CREATE INDEX CONCURRENTLY"]
+  },
+  {
+    "id": "q21",
+    "question": "What percentage of new code must be covered by tests?",
+    "expected_source": "08_testing_standards.md",
+    "expected_keywords": ["80%"]
+  },
+  {
+    "id": "q22",
+    "question": "How long can a flaky test stay quarantined before it must be fixed or deleted?",
+    "expected_source": "08_testing_standards.md",
+    "expected_keywords": ["2 weeks"]
+  },
+  {
+    "id": "q23",
+    "question": "According to both the testing standards and the migration guide, what kind of test does a database migration specifically need?",
+    "expected_source": "08_testing_standards.md",
+    "expected_keywords": ["expand phase", "production-shaped data"]
+  },
+  {
+    "id": "q24",
+    "question": "What is Meridian Systems' marketing budget for 2026?",
+    "is_unanswerable": true
+  },
+  {
+    "id": "q25",
+    "question": "Who is the CEO of Meridian Systems?",
+    "is_unanswerable": true
+  },
+  {
+    "id": "q26",
+    "question": "What programming language should new services be written in?",
+    "is_unanswerable": true
+  }
+]
