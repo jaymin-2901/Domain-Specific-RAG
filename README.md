@@ -23,6 +23,10 @@ Secrets; it is never shown in the interface or committed to this repository.
 
 *Responsive view of the deployed knowledge workspace.*
 
+![Grounded Q&A with citations](docs/images/image.png)
+
+*Live Q&A example showing retrieved resume-based answers, inline citations, and source evidence.*
+
 > Every module in this repo was written *and tested* against the current
 > Google GenAI SDK. Retrieval, chunking, hybrid search, guardrails, and
 > caching were verified end-to-end with a full mocked pipeline run before
