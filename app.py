@@ -71,6 +71,15 @@ st.markdown(
         border: 1px solid #2c5b5b;
         border-radius: 6px;
     }
+    [data-testid="stSidebar"] [data-testid="stJson"] * {
+        color: #173b3d !important;
+        fill: #173b3d !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stJson"] {
+        background: #ffffff !important;
+        color: #173b3d !important;
+        padding: 0.65rem;
+    }
         [data-testid="stSidebar"] label,
         [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
         [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] li,
