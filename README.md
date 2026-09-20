@@ -7,6 +7,22 @@ one specific goal: **be genuinely interview-ready**, not a toy demo.
 vector search, keyword search, reranking, the UI — runs locally with free,
 open-source libraries.
 
+## Live Demo
+
+Try the deployed app: **[Open the Streamlit demo](https://domain-specific-rag-system.streamlit.app/)**
+
+The dashboard provides grounded answers with inline citations and expandable
+retrieval evidence. The deployment keeps the Gemini API key in Streamlit
+Secrets; it is never shown in the interface or committed to this repository.
+
+![Live demo dashboard](docs/images/live-demo-dashboard.png)
+
+*Live dashboard with workspace controls, grounded chat, and source evidence.*
+
+![Responsive live demo](docs/images/live-demo-responsive.png)
+
+*Responsive view of the deployed knowledge workspace.*
+
 > Every module in this repo was written *and tested* against the current
 > Google GenAI SDK. Retrieval, chunking, hybrid search, guardrails, and
 > caching were verified end-to-end with a full mocked pipeline run before
