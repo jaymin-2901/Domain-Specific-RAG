@@ -19,8 +19,6 @@ Secrets; it is never shown in the interface or committed to this repository.
 
 *Live dashboard with workspace controls, grounded chat, and source evidence.*
 
-![Responsive live demo](docs/images/Screenshot 2026-09-20 141912.png)
-
 *Responsive view of the deployed knowledge workspace.*
 
 ![Grounded Q&A with citations](docs/images/image.png)
