@@ -63,13 +63,45 @@ st.markdown(
     }
     [data-testid="stSidebar"] [data-testid="stButton"] button:hover {
         border-color: var(--amber);
-        color: var(--amber);
+        background: #285d5d;
+        color: #fffdf7;
     }
     [data-testid="stSidebar"] [data-testid="stJson"] {
         background: #0e3032;
         border: 1px solid #2c5b5b;
         border-radius: 6px;
     }
+
+    [data-testid="stButton"] button {
+        background: var(--teal) !important;
+        border: 1px solid var(--teal) !important;
+        color: #ffffff !important;
+        min-height: 2.6rem;
+    }
+    [data-testid="stButton"] button p,
+    [data-testid="stButton"] button span { color: #ffffff !important; }
+    [data-testid="stButton"] button:hover {
+        background: #285d5d !important;
+        border-color: #285d5d !important;
+        color: #ffffff !important;
+    }
+    [data-testid="stButton"] button:focus-visible {
+        box-shadow: 0 0 0 3px rgba(242, 184, 75, 0.55) !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stButton"] button {
+        background: #1d4c4d !important;
+        border-color: #5b8582 !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stButton"] button p,
+    [data-testid="stSidebar"] [data-testid="stButton"] button span {
+        color: #ffffff !important;
+    }
+    [data-testid="stExpander"] summary,
+    [data-testid="stExpander"] summary p { color: var(--ink) !important; }
+    [data-testid="stSidebar"] [data-testid="stExpander"] summary,
+    [data-testid="stSidebar"] [data-testid="stExpander"] summary p { color: #ffffff !important; }
+    [data-baseweb="select"] > div { color: var(--ink) !important; }
+    [data-testid="stSidebar"] [data-baseweb="select"] > div { color: #ffffff !important; }
 
     h1, h2, h3, p, label { font-family: 'Manrope', sans-serif; }
     h1 { color: var(--ink); font-size: 2.5rem; letter-spacing: -0.02em; line-height: 1.1; }
