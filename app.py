@@ -105,8 +105,10 @@ st.markdown(
     [data-baseweb="select"] > div,
     [data-baseweb="select"] input { color: var(--ink) !important; }
     [data-testid="stSidebar"] [data-baseweb="select"] > div,
-    [data-testid="stSidebar"] [data-baseweb="select"] input { color: #ffffff !important; }
-    [data-baseweb="select"] svg { fill: currentColor !important; }
+    [data-testid="stSidebar"] [data-baseweb="select"] input,
+    [data-testid="stSidebar"] [data-baseweb="select"] div { color: var(--ink) !important; }
+    [data-testid="stSidebar"] [data-baseweb="select"] > div { background: #ffffff !important; }
+    [data-baseweb="select"] svg { fill: #587073 !important; }
     [data-baseweb="popover"] [role="option"],
     [data-baseweb="menu"] [role="option"] {
         background: #ffffff !important;
@@ -146,7 +148,16 @@ st.markdown(
         border-radius: 6px;
         margin-top: 1rem;
     }
-    [data-testid="stChatInput"] { border-color: #a9c4bf; }
+    [data-testid="stChatInput"] { border-color: #a9c4bf; background: #ffffff; }
+    [data-testid="stChatInput"] textarea {
+        color: var(--ink) !important;
+        -webkit-text-fill-color: var(--ink) !important;
+    }
+    [data-testid="stChatInput"] textarea::placeholder {
+        color: #68777a !important;
+        opacity: 1 !important;
+    }
+    [data-testid="stChatInput"] button svg { fill: var(--teal) !important; }
     [data-testid="stChatInput"]:focus-within { border-color: var(--teal); box-shadow: 0 0 0 1px var(--teal); }
     [data-testid="stText"] { font-size: 0.82rem; line-height: 1.55; }
     .source-meta { color: var(--muted); font-size: 0.78rem; }
