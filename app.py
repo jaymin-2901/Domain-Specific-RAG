@@ -79,7 +79,8 @@ st.markdown(
         min-height: 2.6rem;
     }
     [data-testid="stButton"] button p,
-    [data-testid="stButton"] button span { color: #ffffff !important; }
+    [data-testid="stButton"] button span,
+    [data-testid="stButton"] button div { color: #ffffff !important; }
     [data-testid="stButton"] button:hover {
         background: #285d5d !important;
         border-color: #285d5d !important;
@@ -96,12 +97,23 @@ st.markdown(
     [data-testid="stSidebar"] [data-testid="stButton"] button span {
         color: #ffffff !important;
     }
+    [data-testid="stSidebar"] [data-testid="stButton"] button div { color: #ffffff !important; }
     [data-testid="stExpander"] summary,
     [data-testid="stExpander"] summary p { color: var(--ink) !important; }
     [data-testid="stSidebar"] [data-testid="stExpander"] summary,
     [data-testid="stSidebar"] [data-testid="stExpander"] summary p { color: #ffffff !important; }
-    [data-baseweb="select"] > div { color: var(--ink) !important; }
-    [data-testid="stSidebar"] [data-baseweb="select"] > div { color: #ffffff !important; }
+    [data-baseweb="select"] > div,
+    [data-baseweb="select"] input { color: var(--ink) !important; }
+    [data-testid="stSidebar"] [data-baseweb="select"] > div,
+    [data-testid="stSidebar"] [data-baseweb="select"] input { color: #ffffff !important; }
+    [data-baseweb="select"] svg { fill: currentColor !important; }
+    [data-baseweb="popover"] [role="option"],
+    [data-baseweb="menu"] [role="option"] {
+        background: #ffffff !important;
+        color: var(--ink) !important;
+    }
+    [data-baseweb="popover"] [role="option"]:hover,
+    [data-baseweb="menu"] [role="option"]:hover { background: var(--teal-soft) !important; }
 
     h1, h2, h3, p, label { font-family: 'Manrope', sans-serif; }
     h1 { color: var(--ink); font-size: 2.5rem; letter-spacing: -0.02em; line-height: 1.1; }
