@@ -89,10 +89,12 @@ rag-system/
    ```bash
    streamlit run app.py
    ```
-  The web app asks each user to enter their own Gemini API key and does not
-  display the key from `.env` by default. For Streamlit Community Cloud,
-  users can enter their key in the sidebar, or you can configure a private
-  `GEMINI_API_KEY` secret for the deployment.
+  The web app reads `GEMINI_API_KEY` from Streamlit Secrets when deployed.
+  For local development, it falls back to the ignored `.env` file.
+  Configure the Streamlit Community Cloud secret in the app settings as:
+  ```toml
+  GEMINI_API_KEY = "your-new-gemini-api-key"
+  ```
    Or use the pipeline directly:
    ```python
    from src.pipeline import RAGPipeline

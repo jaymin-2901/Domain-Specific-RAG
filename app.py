@@ -33,6 +33,14 @@ def get_pipeline(api_key: str, embedder_backend: str) -> RAGPipeline:
     return st.session_state.pipeline
 
 
+def get_deployment_api_key() -> str:
+    """Read the deployment secret, falling back to local .env development config."""
+    try:
+        return st.secrets.get("GEMINI_API_KEY", "") or config.GEMINI_API_KEY
+    except Exception:
+        return config.GEMINI_API_KEY
+
+
 def main():
     st.title("🔎 Domain-Specific RAG — Engineering Handbook Q&A")
     st.caption(
@@ -42,11 +50,12 @@ def main():
 
     with st.sidebar:
         st.header("Setup")
+        deployment_api_key = get_deployment_api_key()
         api_key = st.text_input(
             "Gemini API key",
-            value="",
+            value=deployment_api_key,
             type="password",
-            help="Enter your own key. It is used only for this session. Get a key at https://aistudio.google.com/apikey",
+            help="Configured from Streamlit Secrets for this deployment.",
         )
         if not api_key:
             st.warning("Enter a Gemini API key to continue.")
