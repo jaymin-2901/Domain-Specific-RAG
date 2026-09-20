@@ -21,6 +21,96 @@ from src.pipeline import RAGPipeline
 
 st.set_page_config(page_title="Domain RAG — Meridian Systems Handbook", page_icon="🔎", layout="wide")
 
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    :root {
+        --ink: #17272b;
+        --muted: #68777a;
+        --paper: #f5f7f5;
+        --panel: #ffffff;
+        --line: #dfe7e3;
+        --teal: #123b3d;
+        --teal-soft: #dcebea;
+        --amber: #f2b84b;
+    }
+
+    .stApp {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: 'Manrope', sans-serif;
+    }
+
+    [data-testid="stHeader"] { background: transparent; }
+    [data-testid="stDecoration"] { display: none; }
+    .block-container { max-width: 1180px; padding: 3rem 4rem 5rem; }
+
+    [data-testid="stSidebar"] > div:first-child {
+        background: var(--teal);
+        border-right: 1px solid #295657;
+        padding: 2rem 1.25rem;
+    }
+    [data-testid="stSidebar"] * { color: #edf5f1; }
+    [data-testid="stSidebar"] [data-testid="stCaptionContainer"] p { color: #a9c2be; }
+    [data-testid="stSidebar"] hr { border-color: #2d5b5b; }
+    [data-testid="stSidebar"] [data-baseweb="select"] > div,
+    [data-testid="stSidebar"] [data-testid="stButton"] button {
+        background: #1d4c4d;
+        border: 1px solid #37696a;
+        color: #f7fbf9;
+    }
+    [data-testid="stSidebar"] [data-testid="stButton"] button:hover {
+        border-color: var(--amber);
+        color: var(--amber);
+    }
+    [data-testid="stSidebar"] [data-testid="stJson"] {
+        background: #0e3032;
+        border: 1px solid #2c5b5b;
+        border-radius: 6px;
+    }
+
+    h1, h2, h3, p, label { font-family: 'Manrope', sans-serif; }
+    h1 { color: var(--ink); font-size: 2.5rem; letter-spacing: -0.02em; line-height: 1.1; }
+    h2, h3 { color: var(--ink); }
+    [data-testid="stCaptionContainer"] p { color: var(--muted); }
+
+    .eyebrow {
+        color: #4e7f7c;
+        font-family: 'DM Mono', monospace;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+    }
+    .hero-copy { max-width: 720px; margin-bottom: 2rem; }
+    .hero-copy h1 { margin: 0 0 0.75rem; }
+    .hero-copy p { color: var(--muted); font-size: 1rem; margin: 0; }
+
+    [data-testid="stChatMessage"] {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        margin: 0.8rem 0;
+        padding: 1rem 1.15rem;
+    }
+    [data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] p { line-height: 1.7; }
+    [data-testid="stChatMessage"] [data-testid="stExpander"] {
+        background: #f8faf8;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        margin-top: 1rem;
+    }
+    [data-testid="stChatInput"] { border-color: #a9c4bf; }
+    [data-testid="stChatInput"]:focus-within { border-color: var(--teal); box-shadow: 0 0 0 1px var(--teal); }
+    [data-testid="stText"] { font-size: 0.82rem; line-height: 1.55; }
+    .source-meta { color: var(--muted); font-size: 0.78rem; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 def get_pipeline(api_key: str, embedder_backend: str) -> RAGPipeline:
     pipeline_key = (api_key, embedder_backend)
@@ -42,14 +132,20 @@ def get_deployment_api_key() -> str:
 
 
 def main():
-    st.title("🔎 Domain-Specific RAG — Engineering Handbook Q&A")
-    st.caption(
-        "Ask questions about Meridian Systems' (fictional) internal engineering handbook. "
-        "Answers are grounded only in the retrieved documents, with citations."
+    st.markdown(
+        """
+        <div class="hero-copy">
+            <div class="eyebrow">Meridian Systems / Knowledge Workspace</div>
+            <h1>Engineering handbook, made searchable.</h1>
+            <p>Ask a question and receive a concise answer grounded in the indexed handbook, with the evidence shown alongside it.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
     with st.sidebar:
-        st.header("Setup")
+        st.markdown("<div class='eyebrow'>Workspace controls</div>", unsafe_allow_html=True)
+        st.header("Configuration")
         api_key = get_deployment_api_key()
         if not api_key:
             st.error("Gemini API key is not configured for this deployment.")
@@ -65,7 +161,7 @@ def main():
         pipeline = get_pipeline(api_key, embedder_backend)
 
         st.divider()
-        st.subheader("Index")
+        st.subheader("Knowledge index")
         chunk_strategy = st.selectbox("Chunking strategy", ["recursive", "fixed_size", "semantic"], index=0)
         if st.button("Build / rebuild index from data/sample_docs", use_container_width=True):
             try:
@@ -80,7 +176,7 @@ def main():
             st.info("No index loaded yet. Click the button above to build one.")
 
         st.divider()
-        st.subheader("Session stats")
+        st.subheader("Session telemetry")
         st.json(pipeline.cost_tracker.summary())
 
     if pipeline.hybrid is None:
