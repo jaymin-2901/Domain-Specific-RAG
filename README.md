@@ -68,6 +68,8 @@ rag-system/
 
 ## Setup (5 minutes)
 
+**Live demo:** https://domain-specific-rag-system.streamlit.app/
+
 1. **Get a free Gemini API key**: https://aistudio.google.com/apikey (no credit card required).
 2. **Install dependencies:**
    ```bash
