@@ -16,7 +16,6 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 import streamlit as st
 
-import config
 from src.pipeline import RAGPipeline
 
 st.set_page_config(page_title="Domain RAG — Meridian Systems Handbook", page_icon="🔎", layout="wide")
@@ -33,14 +32,6 @@ def get_pipeline(api_key: str, embedder_backend: str) -> RAGPipeline:
     return st.session_state.pipeline
 
 
-def get_deployment_api_key() -> str:
-    """Read the deployment secret, falling back to local .env development config."""
-    try:
-        return st.secrets.get("GEMINI_API_KEY", "") or config.GEMINI_API_KEY
-    except Exception:
-        return config.GEMINI_API_KEY
-
-
 def main():
     st.title("🔎 Domain-Specific RAG — Engineering Handbook Q&A")
     st.caption(
@@ -50,12 +41,11 @@ def main():
 
     with st.sidebar:
         st.header("Setup")
-        deployment_api_key = get_deployment_api_key()
         api_key = st.text_input(
             "Gemini API key",
-            value=deployment_api_key,
+            value="",
             type="password",
-            help="Configured from Streamlit Secrets for this deployment.",
+            help="Enter your own key for this session. Get one at https://aistudio.google.com/apikey",
         )
         if not api_key:
             st.warning("Enter a Gemini API key to continue.")
