@@ -120,7 +120,12 @@ st.markdown(
     h1, h2, h3, p, label { font-family: 'Manrope', sans-serif; }
     h1 { color: var(--ink); font-size: 2.5rem; letter-spacing: -0.02em; line-height: 1.1; }
     h2, h3 { color: var(--ink); }
-    [data-testid="stCaptionContainer"] p { color: var(--muted); }
+    [data-testid="stMarkdownContainer"],
+    [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMarkdownContainer"] li,
+    [data-testid="stText"] { color: var(--ink) !important; }
+    [data-testid="stAlert"] p,
+    [data-testid="stCaptionContainer"] p { color: var(--muted) !important; }
 
     .eyebrow {
         color: #4e7f7c;
