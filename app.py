@@ -71,6 +71,19 @@ st.markdown(
         border: 1px solid #2c5b5b;
         border-radius: 6px;
     }
+        [data-testid="stSidebar"] label,
+        [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+        [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] li,
+        [data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
+            color: #edf5f1 !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stAlert"] {
+            background: #e6f0ef !important;
+            border: 1px solid #a9c4bf !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stAlert"] p {
+            color: #173b3d !important;
+        }
 
     [data-testid="stButton"] button {
         background: var(--teal) !important;
@@ -107,6 +120,9 @@ st.markdown(
     [data-testid="stSidebar"] [data-baseweb="select"] > div,
     [data-testid="stSidebar"] [data-baseweb="select"] input,
     [data-testid="stSidebar"] [data-baseweb="select"] div { color: var(--ink) !important; }
+        [data-testid="stSidebar"] [data-baseweb="select"] input {
+            -webkit-text-fill-color: var(--ink) !important;
+        }
     [data-testid="stSidebar"] [data-baseweb="select"] > div { background: #ffffff !important; }
     [data-baseweb="select"] svg { fill: #587073 !important; }
     [data-baseweb="popover"] [role="option"],
