@@ -91,8 +91,12 @@ rag-system/
    ```bash
    streamlit run app.py
    ```
-  The web app asks each user to enter their own Gemini API key in the sidebar.
-  The dashboard does not read an API key from Streamlit Secrets or `.env`.
+  The deployed web app reads `GEMINI_API_KEY` from Streamlit Secrets and does
+  not display the key to users. For local development, it falls back to the
+  ignored `.env` file. Configure the Streamlit secret as:
+  ```toml
+  GEMINI_API_KEY = "your-new-gemini-api-key"
+  ```
    Or use the pipeline directly:
    ```python
    from src.pipeline import RAGPipeline
